@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="RWe-Yc-IpC">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" id="Kgu-pP-umD" customClass="DashboardViewController" customModule="BooksUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tK9-hi-5MQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YD6-va-dBm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Kgu-pP-umD" id="ZHe-XQ-uHY"/>
+                                    <outlet property="delegate" destination="Kgu-pP-umD" id="Zvo-0z-Txr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DE2-x2-85b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YD6-va-dBm" firstAttribute="leading" secondItem="DE2-x2-85b" secondAttribute="leading" id="8J9-LX-cVC"/>
+                            <constraint firstItem="DE2-x2-85b" firstAttribute="trailing" secondItem="YD6-va-dBm" secondAttribute="trailing" id="LQs-dh-vcl"/>
+                            <constraint firstAttribute="bottom" secondItem="YD6-va-dBm" secondAttribute="bottom" id="mar-rb-rzG"/>
+                            <constraint firstItem="YD6-va-dBm" firstAttribute="top" secondItem="tK9-hi-5MQ" secondAttribute="top" id="wR3-MX-XLc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="YD6-va-dBm" id="fJD-3d-iAu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xsr-mi-KFU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2051" y="93"/>
+        </scene>
+        <!--Add Book View Controller-->
+        <scene sceneID="OdG-pj-I41">
+            <objects>
+                <viewController storyboardIdentifier="AddBookViewController" id="5oW-Ic-DSG" customClass="AddBookViewController" customModule="BooksUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ep-lz-twU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIG-TP-U1h">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXM-9F-RjG" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="459"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-cJ-KSA">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="459"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-5R-8Gh">
+                                                        <rect key="frame" x="20" y="64" width="374" height="41"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter book name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOp-mB-etm" customClass="ThemeTextField" customModule="BooksUIKit" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Name"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="5oW-Ic-DSG" id="EdE-Gj-XaR"/>
+                                                                    <outlet property="errorLabel" destination="g83-Fh-2I9" id="LgH-9S-5DZ"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g83-Fh-2I9">
+                                                                <rect key="frame" x="0.0" y="20.666666666666671" width="374" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hfh-wc-fPX">
+                                                        <rect key="frame" x="20" y="125" width="374" height="41"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter book author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRX-60-GSA" customClass="ThemeTextField" customModule="BooksUIKit" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Author"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="5oW-Ic-DSG" id="sW4-Ua-sZl"/>
+                                                                    <outlet property="errorLabel" destination="n9P-xw-7Lm" id="URp-9K-n5V"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9P-xw-7Lm">
+                                                                <rect key="frame" x="0.0" y="20.666666666666657" width="374" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="i1J-eW-Web">
+                                                        <rect key="frame" x="20" y="186" width="374" height="41"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter book price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diw-XT-VwU" customClass="ThemeTextField" customModule="BooksUIKit" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad" returnKeyType="next"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Price"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="5oW-Ic-DSG" id="ADz-sB-GmQ"/>
+                                                                    <outlet property="errorLabel" destination="UVk-e8-Zl3" id="y2c-XR-cXE"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-e8-Zl3">
+                                                                <rect key="frame" x="0.0" y="20.666666666666657" width="374" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Io6-O5-vUP">
+                                                        <rect key="frame" x="20" y="247" width="374" height="41"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter book synopsis" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODS-8Y-W35" customClass="ThemeTextField" customModule="BooksUIKit" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Synopsis"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="5oW-Ic-DSG" id="dRb-2W-AXJ"/>
+                                                                    <outlet property="errorLabel" destination="jw2-5z-ZRH" id="JO5-8f-7BP"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw2-5z-ZRH">
+                                                                <rect key="frame" x="0.0" y="20.666666666666686" width="374" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-5U-ABC">
+                                                        <rect key="frame" x="20" y="308" width="374" height="41"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter book quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RiA-0H-vSU" customClass="ThemeTextField" customModule="BooksUIKit" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="18.666666666666668"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad" returnKeyType="next"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Quantity"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="5oW-Ic-DSG" id="aOb-Vx-z6i"/>
+                                                                    <outlet property="errorLabel" destination="Mgm-2E-7nY" id="4uy-HE-FvH"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-2E-7nY">
+                                                                <rect key="frame" x="0.0" y="20.666666666666686" width="374" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AJw-Ra-53X" customClass="ThemeEditText" customModule="BooksUIKit" customModuleProvider="target">
+                                                        <rect key="frame" x="20" y="369" width="374" height="70"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="70" id="Owe-Tf-W6f"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Book Description"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type something ..."/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="5oW-Ic-DSG" id="HCr-XE-WFv"/>
+                                                        </connections>
+                                                    </textView>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Qsd-cJ-KSA" firstAttribute="leading" secondItem="YXM-9F-RjG" secondAttribute="leading" id="Eev-aV-5Ge"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qsd-cJ-KSA" secondAttribute="trailing" id="cLa-sK-6gl"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qsd-cJ-KSA" secondAttribute="bottom" id="cnv-0g-Nr2"/>
+                                            <constraint firstItem="Qsd-cJ-KSA" firstAttribute="top" secondItem="YXM-9F-RjG" secondAttribute="top" id="hF3-eC-eyn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YXM-9F-RjG" secondAttribute="trailing" id="F6W-2t-ycm"/>
+                                    <constraint firstItem="YXM-9F-RjG" firstAttribute="top" secondItem="gIG-TP-U1h" secondAttribute="top" id="I36-kG-QnI"/>
+                                    <constraint firstItem="YXM-9F-RjG" firstAttribute="height" secondItem="gIG-TP-U1h" secondAttribute="height" priority="247" id="IwX-r0-eQ6"/>
+                                    <constraint firstAttribute="bottom" secondItem="YXM-9F-RjG" secondAttribute="bottom" id="JdB-ZR-mjG"/>
+                                    <constraint firstItem="YXM-9F-RjG" firstAttribute="width" secondItem="gIG-TP-U1h" secondAttribute="width" id="N2q-Q1-Tkp"/>
+                                    <constraint firstItem="YXM-9F-RjG" firstAttribute="leading" secondItem="gIG-TP-U1h" secondAttribute="leading" id="XrG-RT-32h"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="691-cM-WRW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gIG-TP-U1h" secondAttribute="bottom" id="3Xu-gd-FvT"/>
+                            <constraint firstItem="gIG-TP-U1h" firstAttribute="leading" secondItem="691-cM-WRW" secondAttribute="leading" id="K5G-hn-YkC"/>
+                            <constraint firstItem="691-cM-WRW" firstAttribute="trailing" secondItem="gIG-TP-U1h" secondAttribute="trailing" id="fvh-AJ-SQL"/>
+                            <constraint firstItem="gIG-TP-U1h" firstAttribute="top" secondItem="9ep-lz-twU" secondAttribute="top" id="k2v-jn-5h1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorTextField" destination="xRX-60-GSA" id="i6R-hy-jDu"/>
+                        <outlet property="descriptionTextView" destination="AJw-Ra-53X" id="xvg-Xd-Wth"/>
+                        <outlet property="nameTextField" destination="mOp-mB-etm" id="bdu-J1-4aE"/>
+                        <outlet property="priceTextField" destination="diw-XT-VwU" id="Xrd-bV-MbA"/>
+                        <outlet property="quantityTextField" destination="RiA-0H-vSU" id="7p9-Be-Xc5"/>
+                        <outlet property="synopsisTextField" destination="ODS-8Y-W35" id="kQD-O0-Uhb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcH-Xj-XRx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-494.20289855072468" y="86.383928571428569"/>
+        </scene>
+        <!--Purchase History View Controller-->
+        <scene sceneID="Mug-fE-pEf">
+            <objects>
+                <viewController storyboardIdentifier="PurchaseHistoryViewController" id="WO5-cY-vdE" customClass="PurchaseHistoryViewController" customModule="BooksUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bdq-ln-RkF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ITb-WY-256">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="WO5-cY-vdE" id="vXh-lf-BSx"/>
+                                    <outlet property="delegate" destination="WO5-cY-vdE" id="6NR-fT-0Ea"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RFq-iY-A6V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ITb-WY-256" firstAttribute="leading" secondItem="RFq-iY-A6V" secondAttribute="leading" id="Fo5-xh-mm6"/>
+                            <constraint firstItem="RFq-iY-A6V" firstAttribute="trailing" secondItem="ITb-WY-256" secondAttribute="trailing" id="iCo-Bj-HC4"/>
+                            <constraint firstItem="ITb-WY-256" firstAttribute="top" secondItem="Bdq-ln-RkF" secondAttribute="top" id="lPh-ql-gJB"/>
+                            <constraint firstAttribute="bottom" secondItem="ITb-WY-256" secondAttribute="bottom" id="yL2-JY-iNk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ITb-WY-256" id="Gpl-tS-nvL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynP-rX-0v0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1257" y="86"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
